@@ -62,7 +62,7 @@ public class C02_BestBuy {
         WebElement fransizcaLink = driver.findElement(By.xpath("//*[contains(text(),'Fran')]"));
 
         Assert.assertTrue("Fransizca dili linki goruntulenemiyor", fransizcaLink.isDisplayed());
-
+        //
     }
 
 
