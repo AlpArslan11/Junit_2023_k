@@ -1,4 +1,4 @@
-package day06_radioButton_checkBox;
+package Alparslan.day06_radioButton_checkBox;
 
 import org.junit.After;
 import org.junit.Assert;

@@ -1,4 +1,4 @@
-package day05_Junit;
+package Alparslan.day05_Junit;
 
 import org.junit.After;
 import org.junit.Before;

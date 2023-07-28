@@ -1,4 +1,4 @@
-package day05_Junit;
+package Alparslan.day05_Junit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
