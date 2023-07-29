@@ -9,7 +9,7 @@ public class C01_MavenİlkClass {
     public static void main(String[] args) {
 
     //   WebDriverManager.chromedriver().setup();
-        // selenium-java 4 ile artık bonie garcia elveda dedik.ama pom.xml'le webdrivermanager olarak yine indirdik
+        // selenium-java 4 ile artık bonie garcia elveda dedik.
         WebDriver driver= new ChromeDriver();
 
         driver.manage().window().maximize();

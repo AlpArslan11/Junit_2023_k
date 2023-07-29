@@ -35,6 +35,7 @@ public class C02_BestBuy {
         String actualUrl = driver.getCurrentUrl();
         String expectedUrl = "https://www.bestbuy.com/";
 
+        System.out.println(actualUrl);
         Assert.assertEquals("Sayfa URL'i dogru degil.",actualUrl,expectedUrl);
 
     }
