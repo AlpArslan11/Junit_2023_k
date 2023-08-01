@@ -73,6 +73,7 @@ public class C04_DropDownMenu {
         System.out.println(aramaSonucSayisi);
 
         Assert.assertTrue("arama sonuc sayisi 500'den küçük",aramaSonucSayisi>500);
+
     }
 
 
