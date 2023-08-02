@@ -1,4 +1,4 @@
-package day06_AhmetB;
+package day06_Dropdown_AhmetB;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -59,7 +59,8 @@ public class C02_DropDownReusableMethod {
     }
 
     @Test
-    public void resuable2(){
+    public void resuableKullanıyorum2(){
+        selectFromDropdown(driver.findElement(By.xpath("//*[@id='state']")),"Texas");
 
     }
 
