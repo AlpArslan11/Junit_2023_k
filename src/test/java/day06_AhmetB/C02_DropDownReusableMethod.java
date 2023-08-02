@@ -40,12 +40,27 @@ public class C02_DropDownReusableMethod {
 
     @Test
     public void reusableMethodKullan(){
-        // dropdown reusable method ile yılı 2005 seçelim
+        // dropdown reusable method ile yılı 2005 seçelim month november day 5
         WebElement year = driver.findElement(By.xpath("//*[@id='year']"));
+        WebElement month = driver.findElement(By.id("month"));
+        WebElement day = driver.findElement(By.id("day"));
 
         selectFromDropdown(year,"2005");
+        selectFromDropdown(month,"November");
+        selectFromDropdown(day,"5");
+
+        /* YA DA
+        selectFromDropdown(driver.findElement(By.xpath("//*[@id='year']")),"2005");
+        selectFromDropdown(driver.findElement(By.id("month")),"November");
+        selectFromDropdown(driver.findElement(By.id("day")),"5");
+        */
+
+
     }
 
+    @Test
+    public void resuable2(){
 
+    }
 
 }
