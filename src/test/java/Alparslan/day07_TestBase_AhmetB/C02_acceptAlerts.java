@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities1.TestBase1;
 
-public class C02_JsAlerts extends TestBase1 {
+public class C02_acceptAlerts extends TestBase1 {
     /*
     bir testi çalıştırırken açılan pop-uplar alerttir.
     Eger bu acilan pop-upları sağ click ile inspect yapabiliyorsak bunlar HTML alerttir.
@@ -33,6 +33,9 @@ public class C02_JsAlerts extends TestBase1 {
         /*
         Alertleri nasıl automate edersin? How to handle alerts in selenium
         -Alertler javascript ile oluşturulur. inspect edilemezler. Öncelikle alerte switch etmemiz gerekir.
+
+        driver.switchTo().alert().accept();
+        driver.switchTo().alert().getText());
          */
 
 
@@ -59,13 +62,7 @@ public class C02_JsAlerts extends TestBase1 {
     
     
 
-    //● Bir metod olusturun: dismissAlert
-    //○ 2. butona tıklayın, uyarıdaki Cancel butonuna tıklayın ve result
-    //mesajının “You clicked: Cancel” oldugunu test edin.
-    //● Bir metod olusturun: sendKeysAlert
-    //○ 3. butona tıklayın, uyarıdaki metin kutusuna isminizi yazin, OK
-    //butonuna tıklayın ve result mesajında isminizin görüntülendiğini
-    //doğrulayın
+
 
 
 
