@@ -52,5 +52,33 @@ import java.time.Duration;
         }
 
 
+        //    MULTIPLE WINDOW:
+//    1 parametre alir : Gecis Yapmak Istedigim sayfanin Title
+//    ORNEK:
+//    driver.get("https://the-internet.herokuapp.com/windows");
+//    switchToWindow("New Window");
+//    switchToWindow("The Internet")
+        public static void switchToWindow(String targetTitle) {
+            String origin = driver.getWindowHandle();
+            for (String handle : driver.getWindowHandles()) {
+                driver.switchTo().window(handle);
+                if (driver.getTitle().equals(targetTitle)) {
+                    return;//CIK. break;
+                }
+            }
+            driver.switchTo().window(origin);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
