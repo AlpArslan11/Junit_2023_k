@@ -1,4 +1,4 @@
-package day08;
+package Alparslan.day08;
 
 import org.junit.Assert;
 import org.junit.Test;

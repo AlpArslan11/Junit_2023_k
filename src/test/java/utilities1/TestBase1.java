@@ -2,11 +2,23 @@ package utilities1;
 
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
-    public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturulmasını engellemek
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturulmasını engellemek
         //Testbase testBase = new TestBase(); --> YAPILAMAZ
         // Amacım bu sınıfı extend etmek ve içindeki methodları kullanmak
 
@@ -52,6 +64,11 @@ import java.time.Duration;
         }
 
 
+
+
+
+
+
         //    MULTIPLE WINDOW:
 //    1 parametre alir : Gecis Yapmak Istedigim sayfanin Title
 //    ORNEK:
@@ -69,14 +86,25 @@ import java.time.Duration;
             driver.switchTo().window(origin);
         }
 
+    //    windowNumber sıfır (0)'dan başlıyor.
+//    index numarasini parametre olarak alir
+//    ve o indexli pencereye gecis yapar
+    public static void switchToWindowNumber(int windowNumber) {
+        List<String> list = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(list.get(windowNumber));
+    }
 
 
-
-
-
-
-
-
+    /*   HARD WAIT:
+             @param : second
+            */
+    public static void waitFor(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
