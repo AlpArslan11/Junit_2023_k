@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import utilities1.TestBase1;
 
-public class C02_WindowHandle2 extends TestBase1 {
+public class C01_WindowHandle2 extends TestBase1 {
 
 
     @Test
@@ -30,7 +30,9 @@ public class C02_WindowHandle2 extends TestBase1 {
 
 
 //        IKINCI PENCERE ACILIR VE IKINCI PENCEREDE ISLEM YAPMAK ISTEDIGIMDEN, O PENCEREYE SWITCH-GECIS-YAPMALIYIZ
-        switchToWindowNumber(1);//2. windowa gecis yapdik. driver artik 2. window da
+        switchToWindow(1);//2. windowa gecis yapdik. driver artik 2. window da
+
+
 //        Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
         String actualWindow2Title = driver.getTitle();
         String expectedWindow2Title = "New Window";

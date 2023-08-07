@@ -64,7 +64,10 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         }
 
 
-
+    /*
+    !!!!!!!!!!!!! *****************
+    bu iki switchToWindow() methodunda OVERLOAD yaptık. parametre data tipleri farkli,isimleri aynı
+    */
 
 
 
@@ -89,13 +92,13 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
     //    windowNumber sıfır (0)'dan başlıyor.
 //    index numarasini parametre olarak alir
 //    ve o indexli pencereye gecis yapar
-    public static void switchToWindowNumber(int windowNumber) {
+    public static void switchToWindow(int windowNumber) {
         List<String> list = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(list.get(windowNumber));
     }
 
 
-    /*   HARD WAIT:
+    /*   HARD WAIT:   1 testte 10 defa kullanırsak 30sn gitti. cok kullanmamali
              @param : second
             */
     public static void waitFor(int seconds) {
