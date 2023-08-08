@@ -17,7 +17,8 @@ public class C03_BasicAuthentication extends TestBase1 {
     Bu authentication’i yapabilmek icin uygulamanin kullanicilara  authentication’i nasil yapacagina
     dair bilgilendirme yapmis olmasi gerekir.
 
-    Açılan pop-up bir Alert degildir.
+    BasicAuthentication açılan pop-uptır ama bir Alert degildir. o Yuzden Alert gibi işlenmez. Bize url ve adres formatı verilir.
+    Ona göre işlem yapılır
 
      */
 
@@ -41,14 +42,9 @@ public class C03_BasicAuthentication extends TestBase1 {
         waitFor(3);
         String actualText = driver.findElement(By.xpath("//p")).getText();
         Assert.assertTrue(actualText.contains("Congratulations!"));
+
+
+
     }
-
-
-
-
-
-
-
-
 
 }
