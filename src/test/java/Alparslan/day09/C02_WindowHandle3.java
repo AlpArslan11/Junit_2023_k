@@ -1,4 +1,4 @@
-package day09;
+package Alparslan.day09;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,6 +9,8 @@ public class C02_WindowHandle3 extends TestBase1 {
 
     /*
     Selenium 4 ile gelmiştir.
+     driver.switchTo().newWindow(WindowType.TAB); --> TAB yeni sekme acar.
+      driver.switchTo().newWindow(WindowType.WINDOW); ---> WINDOW yeni pencere açar
      */
 
     @Test
@@ -21,17 +23,18 @@ public class C02_WindowHandle3 extends TestBase1 {
 
         // 2. Yeni bir pencerede Amazon sayfasini acip titleinin "Amazon" metnini icerdigini test edin
          waitFor(3);
-         driver.switchTo().newWindow(WindowType.WINDOW); // yeni pencere oluşturur ve oraya geçiş yapar
+         driver.switchTo().newWindow(WindowType.TAB); // yeni pencere oluşturur ve oraya geçiş yapar
         driver.get("https://www.amazon.com");
         System.out.println(driver.getTitle());
         Assert.assertTrue(driver.getTitle().contains("Amazon"));
 
 
         // 3.  Yeni bir pencerede linkedin sayfasini acip titleinin "LinkedIn" metnini  icerdigini test edin
-        waitFor(3);
-        driver.switchTo().newWindow(WindowType.WINDOW);
+        waitFor(2);
+        driver.switchTo().newWindow(WindowType.TAB);
         driver.get("https://www.linkedin.com");
-        waitFor(3);
+        waitFor(8);
+
         System.out.println(driver.getTitle());
         Assert.assertTrue(driver.getTitle().contains("LinkedIn"));
 
