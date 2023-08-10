@@ -23,6 +23,17 @@ public class C01_Actions1 extends TestBase1 {
         NOT : 1. Action Class’ini her kullanmak istedigimizde yeniden obje olusturmamiz gerekmez. Ayni obje tekrar tekrar driver
         objesi gibi kullanilabilir
         2. action objesi kullanilarak baslayan her komut, calismak icin perform( ) bekler
+
+
+        """"""""""""""
+        1-Adım
+        ---> ACTIONS objesi olustur. içine parametre olarak DRIVER yaz
+
+        2-Adım
+        ---> ELEMENTI locate et. methodlar içine parametre olarak locate'i kullan
+
+        3-Adım
+        ---> Calistirmak istedigim methodu PERFORM() ile bitir. Yoksa çalışmaz.
          */
 
 
@@ -36,19 +47,17 @@ public class C01_Actions1 extends TestBase1 {
         Actions actions = new Actions(driver);
 
         //Kutuya sag tıklayın
-        WebElement kutu= driver.findElement(By.cssSelector("#hot-spot"));
+        WebElement kutu= driver.findElement(By.id("hot-spot"));
         actions.moveToElement(kutu).perform();
-        actions.contextClick().perform();
+        actions.contextClick(kutu).perform();
         waitFor(2);
 
         //Alert’te cikan yazinin “You selected a context menu” oldugunu test edin
-        String actualAlertText = driver.switchTo().alert().getText();
-        String expectedAlertText = "You selected a context menu";
-        Assert.assertEquals(expectedAlertText,actualAlertText);
+
+        Assert.assertEquals("You selected a context menu",driver.switchTo().alert().getText());
 
         //Tamam diyerek alert’i kapatın
         driver.switchTo().alert().accept();
-
 
 
     }
