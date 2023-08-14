@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities1.TestBase1;
 
-public class C01_Actions1 extends TestBase1 {
+public class C01_Actions1_Adimlar extends TestBase1 {
 
 
         /*
