@@ -28,7 +28,7 @@ public class C01_Actions5_interviewSoruları extends TestBase1 {
         actions.keyDown(searchBox,Keys.SHIFT)
                 .sendKeys( "iPhone X fiyatlari")
                 .keyUp(Keys.SHIFT)
-                .sendKeys("  cok pahali!" + Keys.ENTER + Keys.ZENKAKU_HANKAKU)
+                .sendKeys("  cok pahali!" + Keys.ENTER )
                 .build()
                 .perform();
 
