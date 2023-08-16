@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import utilities.TestBaseBeforeAfterClass;
+import utilities1.TestBase1;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ import static org.openqa.selenium.support.locators.RelativeLocator.with;
          1-sepetteki ürünlerle eklediğimiz ürünlerin aynı olduğunu isim ve fiyat olarak doğrulayı
 
          */
-public class HM3_Amazon4TestCase extends TestBaseBeforeAfterClass {
+public class HM3_Amazon4TestCase extends TestBase1 {
 
     @Test
     public void test01() throws InterruptedException {
