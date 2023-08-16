@@ -1,4 +1,4 @@
-package day06_Dropdown_AhmetB;
+package Alparslan.day06_Dropdown_AhmetB;
 
 import org.junit.*;
 import org.openqa.selenium.By;
