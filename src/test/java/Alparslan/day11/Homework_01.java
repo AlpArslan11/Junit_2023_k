@@ -58,6 +58,7 @@ public class Homework_01 extends TestBase1 {
         //8- “Double click me" butonunu cift tiklayin
         actions.doubleClick(driver.findElement(By.xpath("//*[contains(text(),'Double C')]")));
         waitFor(5);
+
     }
 
 }
