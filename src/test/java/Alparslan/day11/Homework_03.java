@@ -9,7 +9,7 @@ import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.Select;
 import utilities1.TestBase1;
 
-import java.util.Arrays;
+
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -34,7 +34,7 @@ public class Homework_03 extends TestBase1 {
         int sayac =0;
         for (WebElement e : ddmList) {
             sayac++;
-            System.out.println(sayac +" inci element" + e.getText());
+            System.out.println(sayac +" inci DROPDOWN elementi -->   " + e.getText());
 
         }
 
@@ -75,8 +75,8 @@ public class Homework_03 extends TestBase1 {
 
 
         //5. ürünün title'ni ve fiyatını variable’a assign edip ürünü sepete ekleyelim
-            String urunTitle = driver.findElement(By.xpath("//span[@id='productTitle']")).getText();
-            String urunPrice = driver.findElement(By.xpath("//*[@class='a-price aok-align-center reinventPricePriceToPayMargin priceToPay']")).getText();
+            String urunTitleIphone = driver.findElement(By.xpath("//span[@id='productTitle']")).getText();
+            String urunPriceIphone = driver.findElement(By.xpath("//*[@class='a-price aok-align-center reinventPricePriceToPayMargin priceToPay']")).getText();
 
         // ürünü sepete ekleyelim
             driver.findElement(By.id("add-to-cart-button")).click();
@@ -85,20 +85,20 @@ public class Homework_03 extends TestBase1 {
         driver.findElement(By.id("nav-cart-count-container")).click();
         List<WebElement> activeProductsInCart = driver.findElements(By.xpath("//*[@data-itemtype='active']"));
 
-        String []urunTitleArr = urunTitle.split(" ");
-        String urunTitleIlk3tanesiStr ="";
+        String []urunTitleArr = urunTitleIphone.split(" ");
+        String urunTitleIlk3tanesiStrIphone ="";
 
 
         for (int i = 0; i < 3; i++) {
-            urunTitleIlk3tanesiStr += urunTitleArr[i].toString()+" ";
+            urunTitleIlk3tanesiStrIphone += urunTitleArr[i] + " ";
         }
-
+        System.out.println("iphone title 3 kelime STRİNG olarak --->  " + urunTitleIlk3tanesiStrIphone);
         for (WebElement e: activeProductsInCart
              ) {
 
-            if (e.getText().contains(urunTitleIlk3tanesiStr)){
+            if (e.getText().contains(urunTitleIlk3tanesiStrIphone)){
                 Assert.assertTrue("sepetteki urun eklenen urun degil"
-                        ,e.getText().contains(urunTitleIlk3tanesiStr));
+                        ,e.getText().contains(urunTitleIlk3tanesiStrIphone));
                 break;
             }
         }
@@ -111,16 +111,78 @@ public class Homework_03 extends TestBase1 {
         driver.get("https://www.amazon.com");
 
         //2. dropdown’dan bebek bölümüne secin
+        ddm = driver.findElement(By.xpath("//*[@title='Search in']"));
+        select  = new Select(ddm);
         select.selectByVisibleText("Baby");
         Thread.sleep(2);
 
         //3. bebek puset aratıp bulundan sonuç sayısını yazdırın
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("bebek puset", Keys.ENTER);
+        try {   Thread.sleep(2000); } catch (InterruptedException e) { throw new RuntimeException(e); }
 
         //4. sonuç yazsının puset içerdiğini test edin
+        String strBonucYazisiBebek = driver.findElement(By.xpath("(//*[@class='a-section a-spacing-small a-spacing-top-small'])[1]")).getText();
+        String expectedvalue = "puset";
+        Assert.assertTrue("sonuç yazsının puset içermiyor",strBonucYazisiBebek.contains(expectedvalue));
+
         //5-üçüncü ürüne relative locater kullanarak tıklayin
+
+        WebElement ikinciBebekPusetUrun = driver.findElement(By.xpath("//*[@data-component-id='21']"));
+
+        WebElement ucuncuBebekPusetUrun = driver.findElement(
+                By.xpath("(//span[@class='a-size-medium a-color-base a-text-normal'])[5]"));
+        ucuncuBebekPusetUrun.click();
+
+        Thread.sleep(2);
+
+
         //6-title ve fiyat bilgilerini assign edelim ve ürünü sepete ekleyin
+        String urunTitlePuset = driver.findElement(By.xpath("//span[@id='productTitle']")).getText();
+        String urunPricePuset = driver.findElement(By.xpath("//*[@class='a-price aok-align-center reinventPricePriceToPayMargin priceToPay']")).getText();
+
+        //ürünü sepete ekleyin
+        driver.findElement(By.id("add-to-cart-button")).click();
+
         //Test 4
-        //1-sepetteki ürünlerle eklediğimiz ürünlerin aynı olduğunu isim ve fiyat olarak doğrulayı
+        //1-sepetteki ürünlerle eklediğimiz ürünlerin aynı olduğunu isim ve fiyat olarak doğrulayın
+        //sepette warmı kontrol edelim
+        Thread.sleep(2000);
+        driver.findElement(By.id("nav-cart-count-container")).click();
+        activeProductsInCart = driver.findElements(By.xpath("//*[@data-itemtype='active']"));
+
+        urunTitleArr = urunTitlePuset.split(" ");
+        String urunTitleIlk3tanesiStrPuset ="";
+
+
+
+
+
+        for (int i = 0; i < 3; i++) {
+            urunTitleIlk3tanesiStrPuset += urunTitleArr[i] + " ";
+        }
+        System.out.println("Puset title 3 kelime STRİNG olarak --->  " + urunTitleIlk3tanesiStrPuset);
+        for (WebElement e: activeProductsInCart
+        ) {
+
+            if (e.getText().contains(urunTitleIlk3tanesiStrPuset)){
+                Assert.assertTrue("sepetteki puset eklenen urun degil"
+                        ,e.getText().contains(urunTitleIlk3tanesiStrPuset));
+                break;
+            }
+        }
+
+
+        for (WebElement e: activeProductsInCart
+        ) {
+
+            if (e.getText().contains(urunTitleIlk3tanesiStrIphone)){
+                Assert.assertTrue("sepetteki iphone eklenen urun degil"
+                        ,e.getText().contains(urunTitleIlk3tanesiStrIphone));
+                break;
+            }
+        }
+
+
     }
 
 
