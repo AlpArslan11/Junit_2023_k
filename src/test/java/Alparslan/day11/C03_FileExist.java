@@ -22,7 +22,7 @@ public class C03_FileExist {
        //masaüstüne logo.jpg kaydedelim
        // sonra dosyanın varlığını test edelim
 
-       String filePath = userHOME+"\\Desktop\\logo.jpg";  // Windows için \\ slash ile calisir.
+       String filePath = userHOME + "\\Desktop\\logo.jpg";  // Windows için \\ slash ile calisir.
         System.out.println(filePath);
 
         boolean isExist = Files.exists(Paths.get(filePath)); // dosya var ise TRUE toksa FALSE
