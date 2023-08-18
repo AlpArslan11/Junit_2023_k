@@ -105,6 +105,10 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         driver.switchTo().window(list.get(windowNumber));
     }
 
+
+
+
+
     /*   HARD WAIT:
      @param : second
     */
@@ -116,16 +120,26 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         }
     }
 
+
+
+
+
+
     //    ACTIONS_RIGHT CLICK
     public static void contextClickOnElementActions(WebElement element) {
         Actions actions = new Actions(driver);
         actions.contextClick(element).perform();
     }
 
+
+
+
     //ACTIONS_DOUBLE CLICK
     public static void doubleClick(WebElement element) {
         new Actions(driver).doubleClick(element).build().perform();
     }
+
+
 
     //    ACTIONS_HOVER_OVER
     public static void hoverOverOnElementActions(WebElement element) {
@@ -133,25 +147,38 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         new Actions(driver).moveToElement(element).perform();
     }
 
+
+
+
     //    ACTIONS_SCROLL_DOWN
     public static void scrollDownActions() {
         new Actions(driver).sendKeys(Keys.PAGE_DOWN).perform();
     }
+
+
+
 
     //    ACTIONS_SCROLL_UP
     public static void scrollUpActions() {
         new Actions(driver).sendKeys(Keys.PAGE_UP).perform();
     }
 
+
+
     //    ACTIONS_SCROLL_RIGHT
     public static void scrollRightActions() {
         new Actions(driver).sendKeys(Keys.ARROW_RIGHT).sendKeys(Keys.ARROW_RIGHT).perform();
     }
 
+
+
     //    ACTIONS_SCROLL_LEFT
     public static void scrollLeftActions() {
         new Actions(driver).sendKeys(Keys.ARROW_LEFT).sendKeys(Keys.ARROW_LEFT).perform();
     }
+
+
+
 
     //    ACTIONS_DRAG_AND_DROP
     public static void dragAndDropActions(WebElement source, WebElement target) {
@@ -159,11 +186,17 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         new Actions(driver).dragAndDrop(source, target).perform();
     }
 
+
+
+
     //    ACTIONS_DRAG_AND_DROP_BY
     public static void dragAndDropActions(WebElement source, int x, int y) {
 //        Actions actions = new Actions(driver);
         new Actions(driver).dragAndDropBy(source, x, y).perform();
     }
+
+
+
 
     //    DYNAMIC SELENIUM WAITS:
 //===============Explicit Wait==============//
@@ -172,20 +205,33 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+
+
+
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
+
+
 
     public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+
+
+
     public static WebElement waitForClickablility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
+
+
+
 
     //COK KULLANILMAZ
     public static void clickWithTimeOut(WebElement element, int timeout) {
@@ -198,6 +244,9 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
             }
         }
     }
+
+
+
 
     //    This can be used when a new page opens. Yeni sagfaya gecislerde kullanilabilir
     public static void waitForPageToLoad(long timeout) {
@@ -216,6 +265,10 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         }
     }
 
+
+
+
+
     //======Fluent Wait====
     // params : xpath of teh element , max timeout in seconds, polling in second
     public static WebElement fluentWait(String xpath, int withTimeout, int pollingEvery) {
@@ -227,6 +280,9 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         return element;
     }
+
+
+
 
     //   SCREENSHOTS
     public void takeScreenShotOfPage() throws IOException {
@@ -241,6 +297,9 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
 
     }
 
+
+
+
     //    SCREENSHOT
 //    @params: WebElement
 //
@@ -254,6 +313,8 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         FileUtils.copyFile(image, new File(path));
     }
 
+
+
     //    SCROLLINTOVIEWJS
     //    @param : WebElement
     //    Verilen webelementin uzerine kaydirir
@@ -262,6 +323,8 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+
+
     //    SAYFANIN EN ALTINA IN
     //    Bu method ile sayfanin en altina inebiliriz
     public void scrollEndJS() {
@@ -269,11 +332,16 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
 
+
+
+
     //    Bu metot ile sayfanin en ustune cikabiliriz
     public void scrollTopJS() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
+
+
 
     //    Bu metot ile belirli bir elemente JS executor ile tiklanabilir
     public void clickByJS(WebElement element) {
@@ -287,6 +355,9 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].setAttribute('value','" + metin + "')", element);
     }
+
+
+
 
     //    input elementindeki degerleri(value) al
     //   Belirli bir WebElement'in id değerini String olarak alır ve value attribute değerini String olarak döndürür
