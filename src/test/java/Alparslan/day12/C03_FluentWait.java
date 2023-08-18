@@ -43,10 +43,6 @@ public class C03_FluentWait extends TestBase1 {
       String helloWorldText = helloworldElement.getText();
         Assert.assertEquals("Hello World!",helloWorldText);
 
-
-
-
-
     }
 
 
