@@ -7,6 +7,14 @@ import org.openqa.selenium.WebDriver;
 
 public class C03_NullPointerException {
 
+    /*
+
+    Eğer değişken deklare edilip, instantiate edilmediyse bu hatayı aliriz. Yani = new ChromeDriver()
+    yazılmadıysa mesela.
+    WebDriver driver = new ChromeDriver();
+
+
+     */
         WebDriver driver;
         Faker faker;
         @Test
@@ -15,7 +23,8 @@ public class C03_NullPointerException {
         }
         @Test
         public void nullPointerExceptionTest2(){
-//        faker=new Faker();
+        //faker=new Faker();
             System.out.println(faker.name().fullName());//java.lang.NullPointerException
+
         }
     }

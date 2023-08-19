@@ -7,6 +7,15 @@ import org.openqa.selenium.Keys;
 import utilities1.TestBase1;
 
 public class C02_TimeOutException extends TestBase1 {
+
+    /*
+   *********** TimeOutException explicit wait kullandıgımda ve locator bulunamadiğinda alirim.
+     */
+
+
+
+
+
     @Test
     public void timeOutExceptionTest(){
         driver.get("https://www.techproeducation.com");

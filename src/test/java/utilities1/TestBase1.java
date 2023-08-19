@@ -64,6 +64,7 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         }
 
         @After
