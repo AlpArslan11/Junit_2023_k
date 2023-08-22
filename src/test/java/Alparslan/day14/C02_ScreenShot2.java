@@ -17,16 +17,18 @@ public class C02_ScreenShot2 extends TestBase1 {
     public void screenshotOfSpecificElements() throws IOException {
 //        Techpro education a git
         driver.get("https://www.techproeducation.com");
-//        Sosyal medya elemanlarını goruntusunu al
-//        1. ekran goruntusunu ek
-        WebElement sosyalMedyaIconlari=driver.findElement(By.xpath("(//div[@class='elementor-widget-container'])[1]"));
-        File image = sosyalMedyaIconlari.getScreenshotAs(OutputType.FILE);
+//        logonun goruntusunu al
+
+//        1. ekran goruntusunu cek
+        WebElement logoTechPro=driver.findElement(By.xpath("(//*[@alt='TechPro Education'])[1]"));
+        File image = logoTechPro.getScreenshotAs(OutputType.FILE);
 //        2. goruntuyu kaydet
         String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 //        Path of screenshot save folder               folder / folder    /file name
         String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
         FileUtils.copyFile(image,new File(path));
-        takeScreenshotOfElement(driver.findElement(By.xpath("//img[@class='attachment-large size-large lazyloaded']")));
+
+        takeScreenshotOfElement(driver.findElement(By.cssSelector(".toolbar-sl-share")));
 
 
     }
