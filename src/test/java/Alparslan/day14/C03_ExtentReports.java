@@ -12,9 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 public class C03_ExtentReports extends TestBase1 {
     //    HATIRLAMAMIZ GEREKEN 3 CLASS
-    protected static ExtentReports extentReports;
-    protected static ExtentHtmlReporter extentHtmlReporter;
-    protected static ExtentTest extentTest;
+    protected static ExtentReports extentReports;  // sablon olusturur
+    protected static ExtentHtmlReporter extentHtmlReporter;  // sablonu projeye ekler
+    protected static ExtentTest extentTest;  // raporlama islemini yapar. loglari rapora yazdırır.
     @Test
     public void extentReportsTest(){
 //      REPORT  PATH --> altyapıyı hazırladık
