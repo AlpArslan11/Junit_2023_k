@@ -4,7 +4,7 @@ public class asd {
 
 
 
-    //  19. Session Selenium Log4J TestNG Intro 2001 30,00
+    //  19. Session Selenium Log4J TestNG Intro 2001 44,05
 
 
 
