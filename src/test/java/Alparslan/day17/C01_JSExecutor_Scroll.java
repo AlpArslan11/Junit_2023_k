@@ -22,6 +22,7 @@ public class C01_JSExecutor_Scroll extends TestBase1 {
         driver.get("https://www.techproeducation.com");
         waitFor(3);
 
+
 //        1. Elementi bul
         WebElement weOffer = driver.findElement(By.xpath("//span[.='we offer']"));
 

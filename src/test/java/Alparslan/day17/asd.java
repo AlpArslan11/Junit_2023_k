@@ -1,4 +1,4 @@
-package Alparslan.day16;
+package Alparslan.day17;
 
 public class asd {
 
