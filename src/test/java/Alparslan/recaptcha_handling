@@ -1,0 +1,225 @@
+
+https://www.linkedin.com/pulse/selenium-test-otomasyonunda-captcha-sorunu-nas%2525C4%2525B1l-%2525C3%2525A7%2525C3%2525B6z%2525C3%2525BCl%2525C3%2525BCr-serhat-u%2525C3%2525A7ar%3FtrackingId=Kl9t5MO%252BT2OUp0FtItILog%253D%253D/?trackingId=Kl9t5MO%2BT2OUp0FtItILog%3D%3D
+
+Selenium Test Otomasyonun'da Captcha Sorunu Nasıl Çözülür?
+
+
+Giriş
+Günümüzdeki artan taleple beraber gelişen teknolojinin getirdiği yenilikler,
+dijital güvenlik için önemli bir risk oluşturmaktadır. Bu tür riskleri önlemek için
+ çeşitli yöntemler mevcuttur ve bunlardan biri de captcha'dır. Captcha insanlar için
+ kolay ancak “botlar” ve diğer zararlı yazılımlar için zor olan bir güvenlik uygulamasıdır.
+ Captcha'lar, aynı zamanda otomasyon testleri için de bir sorun olabilir, çünkü temelde botların
+ web uygulamalarını otomatikleştirmesini engellemek için tasarlanmıştır.
+Captcha Nedir ve Çeşitleri Nelerdir?
+Captcha, "Completely Automated Public Turing test to tell Computers and Humans Apart" kelimelerinin kısaltmasıdır.
+ İnsan ve makine arasındaki ayrımı otomatik olarak yapabilen bir güvenlik önlemidir. Captcha, genellikle
+  web sitelerine erişimi engellemek için kullanılır. Captcha'lar, çeşitli şekillerde olabilir, ancak en yaygın
+  türleri şunlardır:
+Resim Captcha'ları: Bu Captcha'lar, kullanıcıların resimdeki nesneleri tanımlamasını gerektirir.
+Metin Captcha'ları: Bu Captcha'lar, kullanıcıların metinleri doğru bir şekilde yazmasını gerektirir.
+Ses Captcha'ları: Bu Captcha'lar, kullanıcıların sesli bir metni doğru bir şekilde dinlemesini ve yazmasını gerektirir.
+
+
+Captcha'ları Selenium ile Çözme
+Captcha'ları test otomasyonu yaparken Selenium ile çözmenin birkaç yolu vardır. En yaygın yöntemler şunlardır:
+Captcha'yı devre dışı bırakmak
+Captcha'yı çözmek için bir OCR aracı kullanmak
+Captcha'yı çözmek için bir bot kullanmak
+Captcha'yı Manuel Olarak Çözmek
+Captcha'yı Devre Dışı Bırakma
+Captcha'yı devre dışı bırakmanın en kolay yolu, test ortamında Captcha'yı devre dışı bırakmak için test anahtarlarını kullanmaktır. Örneğin, Google reCAPTCHA için, test ortamında Captcha'yı devre dışı bırakmak için test anahtarlarını kullanabilirsiniz. Bildiğiniz gibi reCAPTCHA, web sitelerine insan erişimi ile otomatik erişimi ayırt etmeyi sağlayan Google'ın ücretsiz bir CAPTCHA sistemidir ve günümüzde çok yaygın olarak kullanılmaktadır.
+Aşağıdaki kodda, Google reCAPTCHA için test anahtarlarını kullanarak Captcha'yı devre dışı bırakmak için kullanılan bir örnek gösterilmektedir:
+
+------------------------------------------
+WebDriver driver = new ChromeDriver();
+
+// Set the reCAPTCHA site key and secret key
+driver.manage().addCookie(new Cookie("reCAPTCHA_SITE_KEY", "your_site_key"));
+driver.manage().addCookie(new Cookie("reCAPTCHA_SECRET_KEY", "your_secret_key"));
+
+// Go to the website with the reCAPTCHA
+driver.get("https://www.example.com/");
+
+// Click on the reCAPTCHA checkbox
+driver.findElement(By.id("reCAPTCHA-checkbox")).click();
+
+// Submit the form
+driver.findElement(By.id("submit")).click();
+
+-------------------------------
+
+Captcha'yı Çözmek için Bir OCR Aracı Kullanma
+Captcha'yı çözmek için bir OCR aracı kullanmak, Captcha'ları Selenium ile çözmenin bir başka yoludur.
+Optik karakter tanıma (OCR), basılı metni dijital metne dönüştürmek için kullanılan bir teknolojidir.
+ Özellikle resimlerdeki metni tanımak için kullanılır. Captcha'yı çözmek için bir OCR aracı kullanmak için,
+ OCR aracını Captcha'nın görüntüsü ile birlikte kullanmak gerekir. OCR aracı, Captcha'daki metni tanıyacak
+ ve metni Selenium'a geri gönderecektir.
+Aşağıdaki kodda, Tesseract OCR aracı kullanılarak Captcha'yı çözmeyi amaçlayan bir örnek gösterilmektedir:
+
+-------------------------------------------------
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import net.sourceforge.tesseract.Tesseract;
+
+public class CaptchaSolver {
+
+    public static void main(String[] args) throws IOException {
+        // Create a new WebDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Go to the website with the CAPTCHA
+        driver.get("https://www.example.com/");
+
+        // Take a screenshot of the CAPTCHA
+        File screenshot = driver.getScreenshotAs(OutputType.FILE);
+
+        // Use Tesseract OCR to recognize the text in the CAPTCHA
+        String captchaText = Tesseract.getOCRText(screenshot);
+
+        // Submit the form with the captcha text
+        driver.findElement(By.id("reCAPTCHA-input")).sendKeys(captchaText);
+
+        // Click on the submit button
+        driver.findElement(By.id("submit")).click();
+    }
+}
+
+-------------------------------------------------------------------
+
+
+Yukarıdaki kodda, önce web sitesine gidilmekte ve Captcha'nın ekran görüntüsü alınmaktadır.
+ Ardından, Captcha'daki metni tanımak için Tesseract OCR aracını kullanılmaktadır. Son olarak,
+ elde edilen Captcha metni sendkeys ile gönderilmektedir.
+Captcha'yı çözmek için kullanılabilecek diğer OCR araçları arasında Google Cloud Vision API,
+Amazon Rekognition ve Microsoft Azure Cognitive Services yer almaktadır.
+Captcha'yı Çözmek için Bir Bot Kullanma
+Captcha'yı çözmek için bir bot kullanmak, Captcha'ları Selenium ile çözmenin bir başka yoludur.
+ Botlar, Captcha'ları çözmek için özel olarak tasarlanmıştır. Captcha'yı çözmek için bir bot kullanmak için,
+ botu Captcha'nın görüntüsü ile birlikte kullanmak gerekir. Bot, Captcha'daki metni tanıyacak ve
+ metni Selenium'a geri gönderecektir.
+Aşağıdaki kodda, CAPTCHABot botunu kullanarak Captcha'yı çözen bir örnek gösterilmektedir:
+
+------------------------------------------------------------------------------------
+
+import com.google.common.collect.ImmutableMap;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CAPTCHABot {
+
+    private static final String SECRET_KEY = "YOUR_SECRET_KEY";
+
+    public static void main(String[] args) {
+        // Create a new WebDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Go to the website with the CAPTCHA
+        driver.get("https://www.example.com/");
+
+        // Find the CAPTCHA element
+        WebElement captchaElement = driver.findElement(By.id("reCAPTCHA-image"));
+
+        // Take a screenshot of the CAPTCHA
+        File screenshot = driver.getScreenshotAs(OutputType.FILE);
+
+        // Use the CAPTCHABot to solve the CAPTCHA
+        String captchaText = CAPTCHABot.solve(screenshot);
+
+        // Submit the form with the CAPTCHA text
+        driver.findElement(By.id("reCAPTCHA-input")).sendKeys(captchaText);
+
+        // Submit the form
+        driver.findElement(By.id("submit")).click();
+    }
+
+    public static String solve(File screenshot) {
+        // Create a new CAPTCHABot object
+        CAPTCHABot bot = new CAPTCHABot();
+
+        // Pass the CAPTCHA image to the CAPTCHABot object
+        bot.setCaptchaImage(screenshot);
+
+        // Solve the CAPTCHA
+        String captchaText = bot.solve();
+
+        // Return the CAPTCHA text
+        return captchaText;
+    }
+
+    private void setCaptchaImage(File screenshot) {
+        // Set the CAPTCHA image to the CAPTCHABot object
+        captchaImage = screenshot;
+    }
+
+    private String solve() {
+        // Solve the CAPTCHA
+        String captchaText = recognizeText(captchaImage);
+
+        // Return the CAPTCHA text
+        return captchaText;
+    }
+
+    private String recognizeText(File screenshot) {
+        // Recognize the text in the CAPTCHA image
+        String captchaText = Tesseract.getOCRText(screenshot);
+
+        // Return the CAPTCHA text
+        return captchaText;
+    }
+
+}
+
+-----------------------------------------------------------
+
+Bu kod, CAPTCHABot botunu kullanarak Google reCAPTCHA'yı çözmek için kullanılır. CAPTCHABot botu,
+CAPTCHA'yı çözmek için Google Cloud Vision API'sini kullanır. Google Cloud Vision API, resimlerdeki
+metni tanımak için kullanılan bir API'dir.
+CAPTCHABot botunu kullanmak için, botun SECRET_KEY'sine sahip olmanız gerekir.
+SECRET_KEY'yi Google Cloud Console'dan alabilirsiniz.
+CAPTCHABot botunu kullanmak için, aşağıdaki adımları izleyin:
+CAPTCHABot botunu indirin.
+CAPTCHABot botunu kurun.
+CAPTCHABot botunun SECRET_KEY'sini ayarlayın.
+CAPTCHABot botunu kullanarak CAPTCHA'yı çözün.
+CAPTCHABot botunu kullanarak CAPTCHA'yı çözmek, CAPTCHA'ları Selenium ile çözmenin hızlı ve kolay bir yoludur.
+Captcha'yı Manuel Olarak Çözmek
+Yukarıda otomasyon testi esnasında CAPTCHA'ları çözmenin birkaç yolundan bahsettik. Ancak şunu söyleyebiliriz ki bu sorun için en yaygın yollardan biri Driver Wait kullanarak manuel olarak çözmektir.
+Driver Wait, bir web sayfasının belirli bir öğesinin görünmesini beklemek için kullanılan bir yöntemdir. Driver Wait'i kullanarak, CAPTCHA'nın görünmesini bekleyebilir ve ardından CAPTCHA'yı çözmek için manuel olarak bir eylem gerçekleştirebilirsiniz.
+Driver Wait'i kullanmak için, aşağıdaki adımları izleyin:
+CAPTCHA'nın görünmesini beklemek için bir zamanlayıcı ayarlayın.
+Zamanlayıcı sona erdiğinde, CAPTCHA'yı çözmek için manuel olarak bir eylem gerçekleştirin.
+Driver Wait'i kullanarak CAPTCHA'yı çözmek için aşağıdaki kodu kullanabilirsiniz:
+
+----------------------------------------------------------------------
+WebDriver driver = new ChromeDriver();
+
+// Go to the website with the CAPTCHA
+driver.get("https://www.example.com/");
+
+// Find the CAPTCHA element
+WebElement captchaElement = driver.findElement(By.id("reCAPTCHA-image"));
+
+// Set a timer to wait for the CAPTCHA to appear
+WebDriverWait wait = new WebDriverWait(driver, 10000);
+
+// Wait for the CAPTCHA to appear
+wait.until(ExpectedConditions.visibilityOf(captchaElement));
+
+// Solve the CAPTCHA manually
+// ...
+
+// Submit the form
+driver.findElement(By.id("submit")).click();
+---------------------------------------------------------------------------
+
+Sonuç
+Selenium'da Captcha'nın nasıl ele alınacağına dair bu yazıda, Captcha'ların ne olduğunu ve Selenium otomasyon testinde bunlarla nasıl başa çıkabileceğimizi farklı yollarla anlattık. Unutulmamalıdır ki Captcha'ları çözmek için en iyi yöntem, sizin testinizin kapsam ve içeriğiyle doğrudan ilişkili olacak ve özel durumunuza bağlı olacaktır. Umarım Selenium'daki Captcha'lar hakkında yeni bir şeyler öğrenmişsinizdir ve bu yazıyı okumaktan keyif almışsınızdır.
+İyi Testler!!!

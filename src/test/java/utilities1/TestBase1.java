@@ -349,6 +349,9 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
+
+
+
     //   gitmis oldugum metni elemente yazdirir
     //    bu method sendKeys metotuna bir alternatifdir.
     //    sendKeys oncelikli tercihimizdir
@@ -373,7 +376,7 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
         System.out.println("Kutudaki value: " + text);
     }
 
-//        NOT: document.querySelector("p").value;  -> TAG KULLANILABILIR
-//             document.querySelector(".example").value; -> CSS DEGERI KULLANILABILIR
-//             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
+//        NOT: document.querySelector("p").value;  -> TAG KULLANILABILIR. p tagli elementin değerini return eder
+//             document.querySelector(".example").value; -> CSS class DEGERI KULLANILABILIR.
+//             document.querySelector("#example").value; -> CSS id DEGERI KULLANILABILIR
 }
