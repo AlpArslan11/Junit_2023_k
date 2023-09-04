@@ -1,0 +1,15 @@
+        -->log4j nedir?
+Log4J bilgilerini console a yada bir dosyaya loglamak(yazdırmak) icin
+kullanılan bir API dir
+Log4J bilgi, hata, yada debug mesajlarını yazdırmak icin kullanilabilir
+System.out.print fonksiyonuna çok benzerdir, fakat kullanımı icin log4j dependency gerekmek
+dedir.
+
+    --> Neden log4j kullanılır?
+Farkli log lama çeşitleri vardır
+    Fatal logs : logger.fatal(“This is fatal logger");
+    Error logs : logger.error("This is error logger");
+    Informational logs : logger.info("This is info logger");
+    Debug logs : logger.debug("This is debug logger”);
+-->Loglama anındaki zaman bilgisini alınabilir
+-->Dosyaya kalici olarak loglama islemi yapılabilir
