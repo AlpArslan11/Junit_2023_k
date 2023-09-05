@@ -27,7 +27,7 @@
         <!--        Istedigim klasordeki ayarlari degistirmek icin kullanilir
         Bu kisimdaki ayar alttaki ROOT klasorundeki ayari OVERRIDE EDER.
         ayrı bir package icin ayar yapmak için bu kod blogundan kopyalayıp yeniden yazariz.-->
-        <Logger name="day18" level="trace" additivity="false">
+        <Logger name="day18_JSExecutor_Log4J" level="trace" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="file"/>
         </Logger>
