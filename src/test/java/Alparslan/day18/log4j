@@ -13,3 +13,10 @@ Farkli log lama çeşitleri vardır
     Debug logs : logger.debug("This is debug logger”);
 -->Loglama anındaki zaman bilgisini alınabilir
 -->Dosyaya kalici olarak loglama islemi yapılabilir
+
+        -->Log4j Nedir?
+- Loglama yani yazdırma islemi yapmak icin kullanılan bir API dir
+Cesitli seviyelerde loglama islemi yapılabilir: uyarı, bilgi, debug, hata mesajları icin
+- kullanilabilir
+- Javadaki system.out.println e benzer, ama log4 j ile dosyaya detaylı sekilde Yazdırma islemi yapabilir.
+- Su anda projemde log4J2 kullanmaktayım
