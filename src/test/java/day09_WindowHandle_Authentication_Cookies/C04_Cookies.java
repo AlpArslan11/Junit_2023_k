@@ -9,7 +9,7 @@ import utilities1.TestBase1;
 import java.util.Set;
 
 
-public class C04_Cookeies extends TestBase1 {
+public class C04_Cookies extends TestBase1 {
     /*
     10. Session Selenium Multiple Windows İ Basic Authentication0501      2:06:22
      */

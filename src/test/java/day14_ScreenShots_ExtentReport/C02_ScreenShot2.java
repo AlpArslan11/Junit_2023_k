@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 public class C02_ScreenShot2 extends TestBase1 {
+
     @Test
     public void screenshotOfSpecificElements() throws IOException {
 //        Techpro education a git

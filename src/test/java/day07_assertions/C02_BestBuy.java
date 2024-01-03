@@ -64,6 +64,7 @@ public class C02_BestBuy {
 
         Assert.assertTrue("Fransizca dili linki goruntulenemiyor", fransizcaLink.isDisplayed());
         //
+
     }
 
 
