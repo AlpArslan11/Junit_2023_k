@@ -69,7 +69,7 @@ public abstract class TestBase1 { // abstract yapmamızın sebebi obje oluşturu
 
         @After
         public void tearDown(){
-            driver.quit();
+      //      driver.quit();
 
         }
 

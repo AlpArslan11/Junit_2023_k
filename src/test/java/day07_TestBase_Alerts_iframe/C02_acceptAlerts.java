@@ -43,7 +43,8 @@ public class C02_acceptAlerts extends TestBase1 {
     @Test
     public void acceptAlert() throws InterruptedException {
         //Bir class olusturun: Alerts
-        //● https://testcenter.techproeducation.com/index.php?page=javascript-alerts    adresine gidin.
+        //● https://testcenter.techproeducation.com/index.php?page=javascript-alerts
+        // adresine gidin.
         //● Bir metod olusturun: acceptAlert
         driver.get("https://testcenter.techproeducation.com/index.php?page=javascript-alerts ");
 
